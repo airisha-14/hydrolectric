@@ -30,24 +30,6 @@ p{margin:0 0 14px}
 ul{padding-left:22px;margin:0}
 li{margin-bottom:8px}
 .alt{background:var(--pale)}
-
-/* Interactive Simulator Styles */
-.sim-container{background:var(--card);border-radius:18px;padding:24px;border:1px solid rgba(30,111,217,0.25);box-shadow:0 10px 25px rgba(0,0,0,0.08);margin-top:20px;text-align:center}
-.sim-stage{position:relative;width:100%;max-width:480px;height:240px;margin:0 auto 20px;background:linear-gradient(180deg, #b3e5fc 0%, #0288d1 100%);border-radius:14px;overflow:hidden;box-shadow:inset 0 4px 12px rgba(0,0,0,0.15)}
-.water-flow{position:absolute;width:200%;height:100%;top:0;left:0;background:repeating-linear-gradient(90deg, rgba(255,255,255,0.2) 0px, rgba(255,255,255,0.2) 30px, transparent 30px, transparent 60px);animation:flow 2s linear infinite}
-@keyframes flow { 0% { transform: translateX(0); } 100% { transform: translateX(-60px); } }
-.turbine-svg{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);width:130px;height:130px;z-index:2;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.3))}
-.blades{transform-origin:center;animation:spin 3s linear infinite}
-@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-.sim-controls{display:flex;flex-direction:column;gap:12px;align-items:center;margin-bottom:20px}
-.sim-controls label{font-weight:bold;color:var(--dark)}
-.sim-controls input[type="range"]{width:100%;max-width:320px;accent-color:var(--mid);cursor:pointer}
-.sim-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-@media(max-width:600px){.sim-stats{grid-template-columns:1fr}}
-.stat-box{background:var(--bg);padding:12px;border-radius:10px;border:1px solid rgba(30,111,217,0.15)}
-.stat-val{font-size:22px;font-weight:bold;color:var(--mid)}
-.stat-lbl{font-size:13px;color:var(--muted)}
-
 .gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}
 @media(max-width:720px){.gallery-grid{grid-template-columns:1fr}}
 .model-card{background:var(--card);border-radius:16px;padding:14px;text-align:center;border:1px solid rgba(30,111,217,0.2);box-shadow:0 8px 20px rgba(0,0,0,0.06)}
@@ -78,55 +60,7 @@ footer{background:#06234f;color:#9fbde0;text-align:center;font-size:14px;padding
 <p>Many households near the Cisadane River in Desa Lengkong Kyai face unstable access to electricity. Since the river flows continuously, our product—the <strong>Hydrolectric</strong>—converts the water’s natural kinetic energy into a reliable, sustainable power source for the local community.</p>
 </div></section>
 
-<!-- Interactive Turbine Section -->
 <section class="alt"><div class="wrap">
-<h2>Interactive Hydrolectric Turbine Simulator</h2>
-<p>Use the slider below to adjust the Cisadane River flow speed and see how much clean electricity the Hydrolectric generates for Desa Lengkong Kyai in real time:</p>
-
-<div class="sim-container">
-  <div class="sim-stage">
-    <div class="water-flow" id="waterFlow"></div>
-    <svg class="turbine-svg" viewBox="0 0 100 100">
-      <!-- Center Shaft -->
-      <circle cx="50" cy="50" r="10" fill="#0b3d91" />
-      <!-- Rotating Blades Group -->
-      <g class="blades" id="turbineBlades">
-        <path d="M50 40 L50 10 C58 10 58 25 50 40 Z" fill="#1e6fd9" />
-        <path d="M50 60 L50 90 C42 90 42 75 50 60 Z" fill="#1e6fd9" />
-        <path d="M40 50 L10 50 C10 42 25 42 40 50 Z" fill="#1e6fd9" />
-        <path d="M60 50 L90 50 C90 58 75 58 60 50 Z" fill="#1e6fd9" />
-        <path d="M43 43 L22 22 C17 27 27 37 43 43 Z" fill="#5aa9f5" />
-        <path d="M57 57 L78 78 C83 73 73 63 57 57 Z" fill="#5aa9f5" />
-        <path d="M43 57 L22 78 C27 83 37 73 43 57 Z" fill="#5aa9f5" />
-        <path d="M57 43 L78 22 C73 17 63 27 57 43 Z" fill="#5aa9f5" />
-      </g>
-      <circle cx="50" cy="50" r="5" fill="#ffffff" />
-    </svg>
-  </div>
-
-  <div class="sim-controls">
-    <label for="speedSlider">River Flow Speed: <span id="speedVal">3.0</span> m/s</label>
-    <input type="range" id="speedSlider" min="0" max="10" step="0.5" value="3.0">
-  </div>
-
-  <div class="sim-stats">
-    <div class="stat-box">
-      <div class="stat-val" id="statRpm">180</div>
-      <div class="stat-lbl">Turbine Speed (RPM)</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-val" id="statPower">450 W</div>
-      <div class="stat-lbl">Power Generated</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-val" id="statBulbs">45 Lights</div>
-      <div class="stat-lbl">Village Lights Powered</div>
-    </div>
-  </div>
-</div>
-</div></section>
-
-<section><div class="wrap">
 <h2>How It Works</h2>
 <div class="grid">
 <div class="card"><h3>1. Water Flows</h3><p>Flowing water from the Cisadane River pushes directly against the Hydrolectric turbine blades.</p></div>
@@ -134,7 +68,7 @@ footer{background:#06234f;color:#9fbde0;text-align:center;font-size:14px;padding
 <div class="card"><h3>3. Electricity Is Made</h3><p>The generator produces clean electricity to power lights and essential electronics in Desa Lengkong Kyai.</p></div>
 </div></div></section>
 
-<section class="alt"><div class="wrap">
+<section><div class="wrap">
 <h2>Our Prototype Model & Project Poster</h2>
 <p>Below are our diorama scale models illustrating the Cisadane River structure in Desa Lengkong Kyai, alongside our official Innovation Day poster:</p>
 
@@ -150,12 +84,12 @@ footer{background:#06234f;color:#9fbde0;text-align:center;font-size:14px;padding
 </div>
 
 <div class="poster-card">
-  <img src="poster.jpg" alt="Hydrolectric Presentation Poster" class="poster-img">
+  <img src="poster kelas.jpg" alt="Hydrolectric Presentation Poster" class="poster-img">
   <p>Innovation Day Presentation Poster</p>
 </div>
 </div></section>
 
-<section><div class="wrap">
+<section class="alt"><div class="wrap">
 <h2>Why Hydrolectric Is Useful for Desa Lengkong Kyai</h2>
 <ul>
 <li>Harnesses the continuous flow of the Cisadane River to provide a 24/7 renewable energy source.</li>
@@ -176,46 +110,5 @@ footer{background:#06234f;color:#9fbde0;text-align:center;font-size:14px;padding
 </div></section>
 
 <footer>Hydrolectric Cisadane River · Desa Lengkong Kyai · Innovation Day</footer>
-
-<script>
-const slider = document.getElementById('speedSlider');
-const speedVal = document.getElementById('speedVal');
-const blades = document.getElementById('turbineBlades');
-const water = document.getElementById('waterFlow');
-const statRpm = document.getElementById('statRpm');
-const statPower = document.getElementById('statPower');
-const statBulbs = document.getElementById('statBulbs');
-
-slider.addEventListener('input', function() {
-  const v = parseFloat(this.value);
-  speedVal.textContent = v.toFixed(1);
-  
-  if (v === 0) {
-    blades.style.animationPlayState = 'paused';
-    water.style.animationPlayState = 'paused';
-    statRpm.textContent = '0';
-    statPower.textContent = '0 W';
-    statBulbs.textContent = '0 Lights';
-  } else {
-    blades.style.animationPlayState = 'running';
-    water.style.animationPlayState = 'running';
-    
-    // Calculate animation speeds dynamically
-    const spinDuration = 3 / (v / 2);
-    const flowDuration = 2 / (v / 2);
-    blades.style.animationDuration = `${spinDuration}s`;
-    water.style.animationDuration = `${flowDuration}s`;
-    
-    // Math estimates for simulated outputs
-    const rpm = Math.round(v * 60);
-    const power = Math.round(v * 150);
-    const bulbs = Math.round(power / 10);
-    
-    statRpm.textContent = rpm;
-    statPower.textContent = `${power} W`;
-    statBulbs.textContent = `${bulbs} Lights`;
-  }
-});
-</script>
 </body>
 </html>
